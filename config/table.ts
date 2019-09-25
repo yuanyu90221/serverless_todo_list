@@ -1,0 +1,4 @@
+const TABLE_TODOSLIST = process.env.TABLE_TODOSLIST;
+export {
+  TABLE_TODOSLIST
+};

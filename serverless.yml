@@ -1,0 +1,82 @@
+service:
+  name: todo-list
+#app: your-app-name
+#tenant: your-tenant-name
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+  timeout: 30
+  apiName: todolist-${self:provider.stage}
+  memorySize: 128
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource: 
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${env:TABLE_TODOSLIST}"
+
+functions:
+  todos:
+    handler: entrypoint/get_todos.todos
+    events:
+      - http:
+          method: get
+          path: todos
+          cors: true
+    environment:
+      TABLE_TODOSLIST: ${env:TABLE_TODOSLIST}
+
+  todo:
+    handler: entrypoint/get_todo.todo
+    events:
+      - http:
+          method: get
+          path: todo/{id}
+          request:
+            parameters:
+              paths:
+                id: true
+          cors: true
+    environment:
+      TABLE_TODOSLIST: ${env:TABLE_TODOSLIST}
+    
+  todoPost:
+    handler: entrypoint/post_todos.todosPost
+    events:
+      - http:
+          method: post
+          path: todos
+          cors: true
+    environment:
+      TABLE_TODOSLIST: ${env:TABLE_TODOSLIST}
+  
+  todoPut:
+    handler: entrypoint/put_todos.todosPut
+    events:
+      - http:
+          method: put
+          path: todos/{id}
+          request:
+            parameters:
+              paths:
+                id: true
+          cors: true
+    environment:
+      TABLE_TODOSLIST: ${env:TABLE_TODOSLIST}
+  
+  todoDelete:
+    handler: entrypoint/delete_todos.todosDelete
+    events:
+      - http:
+          method: delete
+          path: todos
+          cors: true
+    environment:
+      TABLE_TODOSLIST: ${env:TABLE_TODOSLIST}    

@@ -1,0 +1,30 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "Serverless webpack example using Typescript",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest -t",
+    "create": "ts-node init/initDB.ts",
+    "delete": "ts-node init/deleteTable.ts"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.535.0",
+    "source-map-support": "^0.5.10",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.17",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^10.12.18",
+    "@types/uuid": "^3.4.5",
+    "jest": "^24.9.0",
+    "serverless-webpack": "^5.2.0",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0"
+  },
+  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
+  "license": "MIT"
+}
