@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest -t",
     "create": "ts-node init/initDB.ts",
-    "delete": "ts-node init/deleteTable.ts"
+    "delete": "ts-node init/deleteTable.ts",
+    "remove": "serverless remove"
   },
   "dependencies": {
     "aws-sdk": "^2.535.0",
