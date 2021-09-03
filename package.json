@@ -16,15 +16,15 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
-    "@types/jest": "^24.0.18",
+    "@types/jest": "^27.0.1",
     "@types/node": "^10.12.18",
     "@types/uuid": "^3.4.5",
-    "jest": "^24.9.0",
+    "jest": "^27.1.0",
     "serverless-webpack": "^5.2.0",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "^27.0.5",
     "ts-loader": "^5.3.3",
     "typescript": "^3.2.4",
-    "webpack": "^4.29.0"
+    "webpack": "^5.51.2"
   },
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "license": "MIT"
